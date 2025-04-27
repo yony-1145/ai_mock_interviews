@@ -68,7 +68,7 @@ export async function signIn(params: SignInParams){
 }
 
 export async function setSessionCookies(idToken: string) {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
 
   const sessionCookie = await auth.createSessionCookie(idToken, {
     expiresIn: ONE_WEEK,
@@ -84,9 +84,9 @@ export async function setSessionCookies(idToken: string) {
 }
 
 export async function getCurrentUser(): Promise<User | null> {
-  const cookieStore = cookies();
+  const cookieStore =  await cookies();
 
-  const sessionCookie = await cookieStore.get('session')?.value;
+  const sessionCookie = cookieStore.get('session')?.value;
 
   if(!sessionCookie) return null;
   
