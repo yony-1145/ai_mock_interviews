@@ -23,7 +23,7 @@ const Agent= ({userName, userId,type}: AgentProps) => {
     const router = useRouter();
     const [isSpeaking, setisSpeaking] = useState(false);
     const [callStatus, setcallStatus] = useState<CallStatus>(CallStatus.INACTIVE);
-    const [messages, setmessages] = useState<SavedMessage[]>([])
+    const [messages, setMessages] = useState<SavedMessage[]>([])
 
     useEffect(() => {
         const onCallStart = () => setcallStatus(CallStatus.ACTIVE);
@@ -62,7 +62,26 @@ const Agent= ({userName, userId,type}: AgentProps) => {
     useEffect(() => {
       if(callStatus === CallStatus.FINISHED) router.push('/');
     }, [messages,callStatus,type,userId]);
+
+    const handelCall = async() => {
+        setcallStatus(CallStatus.CONNECTING);
+
+        await vapi.start(process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!, {
+            variableValues: {
+                username: userName,
+                userid: userId,
+            }
+        })
+    }
+
+    const handelDisconnect = async() => {
+        setcallStatus(CallStatus.FINISHED);
+
+        vapi.stop();
+    }
     
+    const latestMessage = messages[messages.length -1]?.content;
+    const isCallInactiveOrFinished = callStatus === CallStatus.INACTIVE || callStatus === CallStatus.FINISHED;
 
     return (
         <>
@@ -86,8 +105,8 @@ const Agent= ({userName, userId,type}: AgentProps) => {
         {messages.length > 0 && (
             <div className='transcript-border'>
                 <div className='transcript'>
-                    <p key={lastMessage} className={cn('transition-opacity duration-500 opacity-0', 'animate-fadeIn opacity-100')}>
-                        {lastMessage}
+                    <p key={latestMessage} className={cn('transition-opacity duration-500 opacity-0', 'animate-fadeIn opacity-100')}>
+                        {latestMessage}
                     </p>
                 </div>
             </div>
@@ -95,16 +114,15 @@ const Agent= ({userName, userId,type}: AgentProps) => {
 
         <div className='w-full flex justify-center'>
             {callStatus !== 'ACTIVE' ? (
-                <button className='relative btn-call'>
+                <button className='relative btn-call' onClick={handelCall}>
                     <span className={cn('absolute animate-ping rounded-full opacity-75', callStatus !== 'CONNECTING' && 'hidden')}/>
                     
                     <span>
-                        {callStatus === 'INACTIVE' || callStatus === 'FINISHED' ? 
-                        'Call': '...' } 
+                        {isCallInactiveOrFinished ? 'Call': '...' } 
                     </span>
                 </button>
             ): (
-                <button className='btn-disconnect'>
+                <button className='btn-disconnect' onClick={handelDisconnect}>
                     End
                 </button>
             )}
