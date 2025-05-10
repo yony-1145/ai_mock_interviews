@@ -63,7 +63,7 @@ const Agent= ({userName, userId,type}: AgentProps) => {
       if(callStatus === CallStatus.FINISHED) router.push('/');
     }, [messages,callStatus,type,userId]);
 
-    const handelCall = async() => {
+    const handleCall = async() => {
         setcallStatus(CallStatus.CONNECTING);
 
         await vapi.start(process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!, {
@@ -74,7 +74,7 @@ const Agent= ({userName, userId,type}: AgentProps) => {
         })
     }
 
-    const handelDisconnect = async() => {
+    const handleDisconnect = async() => {
         setcallStatus(CallStatus.FINISHED);
 
         vapi.stop();
@@ -114,7 +114,7 @@ const Agent= ({userName, userId,type}: AgentProps) => {
 
         <div className='w-full flex justify-center'>
             {callStatus !== 'ACTIVE' ? (
-                <button className='relative btn-call' onClick={handelCall}>
+                <button className='relative btn-call' onClick={handleCall}>
                     <span className={cn('absolute animate-ping rounded-full opacity-75', callStatus !== 'CONNECTING' && 'hidden')}/>
                     
                     <span>
@@ -122,7 +122,7 @@ const Agent= ({userName, userId,type}: AgentProps) => {
                     </span>
                 </button>
             ): (
-                <button className='btn-disconnect' onClick={handelDisconnect}>
+                <button className='btn-disconnect' onClick={handleDisconnect}>
                     End
                 </button>
             )}
