@@ -82,8 +82,9 @@ export async function createFeedback(params: CreateFeedbackParams){
             categoryScores,
             strengths,
             areasForImprovement,
+            finalAssessment,
             createdAt: new Date().toISOString()           
-          })
+          });
 
           return{
             success: true,
