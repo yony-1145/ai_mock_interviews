@@ -2,7 +2,7 @@ import Agent from '@/app/components/Agent';
 import DisplayTechIcons from '@/app/components/DisplayTechIcons';
 import { getCurrentUser } from '@/lib/actions/auth.action';
 import { getInterviewsById } from '@/lib/actions/general.action';
-import { getRandomInterviewCover } from '@/lib/utils';
+import { getRandomInterviewCover } from '@/lib/utils/utils';
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
 

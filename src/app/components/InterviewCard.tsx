@@ -1,7 +1,7 @@
 import React from 'react'
 import dayjs from 'dayjs'
 import Image from 'next/image';
-import { getRandomInterviewCover } from '../../lib/utils';
+import { getRandomInterviewCover } from '../../lib/utils/utils';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import DisplayTechIcons from './DisplayTechIcons';
