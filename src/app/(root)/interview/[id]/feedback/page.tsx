@@ -95,11 +95,6 @@ const Page = async({params}: RouteParams) => {
           </Link>
         </Button>
       </div>
-
-
-
-
-
     </section>
   )
 }

@@ -1,5 +1,6 @@
 'use server';
 
+import { setSessionCookies } from '@/lib/utils/session';
 import { auth, db } from "@/app/firebase/admin";
 import { cookies } from "next/headers";
 
@@ -66,22 +67,6 @@ export async function signIn(params: SignInParams){
       message: 'User does not exist. Create an account instead.'
     }
   }
-}
-
-export async function setSessionCookies(idToken: string) {
-  const cookieStore = await cookies();
-
-  const sessionCookie = await auth.createSessionCookie(idToken, {
-    expiresIn: ONE_WEEK_MS,
-  })
-
-  cookieStore.set('session', sessionCookie, {
-    maxAge: ONE_WEEK, 
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    path: '/',
-    sameSite: 'lax'
-  })
 }
 
 export async function getCurrentUser(): Promise<User | null> {

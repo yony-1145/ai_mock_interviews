@@ -10,7 +10,6 @@ interface FormFieldProps<T extends FieldValues> {
   placeholder?: string;
   type?: 'text' | 'email'| 'password' | 'file'
 }
-// タイプの宣言、後で理解。Path<T>とControl<T>、<T>も
 
 const FormField = <T extends FieldValues>({
   control, 
@@ -21,7 +20,7 @@ const FormField = <T extends FieldValues>({
   }: FormFieldProps<T>) => {
   return(
     <Controller
-    control={control} //　状態を管理 
+    control={control}
     name={name} 
     render={({ field }) => (
       <FormItem>

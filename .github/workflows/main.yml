@@ -1,5 +1,22 @@
+<<<<<<< HEAD
 jobs:
   build-and-deploy:
+=======
+name: Test and Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  test:
+>>>>>>> dev
     runs-on: ubuntu-latest
     env:
       FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
@@ -11,19 +28,51 @@ jobs:
       NEXT_PUBLIC_URL: ${{ secrets.NEXT_PUBLIC_URL }}
     steps:
       - uses: actions/checkout@v3
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '22.14.0'
           cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm test
 
+<<<<<<< HEAD
       - name: Install dependencies
         run: npm ci
 
       - name: Build
         run: npm run build
 
+=======
+  build-and-deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    env:
+      FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+      FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
+      FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
+      GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
+      NEXT_PUBLIC_VAPI_WEB_TOKEN: ${{ secrets.NEXT_PUBLIC_VAPI_WEB_TOKEN }}
+      NEXT_PUBLIC_VAPI_WORKFLOW_ID: ${{ secrets.NEXT_PUBLIC_VAPI_WORKFLOW_ID }}
+      NEXT_PUBLIC_URL: ${{ secrets.NEXT_PUBLIC_URL }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.14.0'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+>>>>>>> dev
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25
         with:
