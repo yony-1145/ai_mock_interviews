@@ -53,8 +53,8 @@ const InterviewCard = async({id,userId,role,type,techstack,createdAt}: Interview
 
                 <Button className="btn-primary">
                     <Link href={feedback
-                        ?`/interview/${id}/feedback`
-                        :`/interview/${id}`
+                        ?`${id}/feedback`
+                        :`interview/${id}`
                     }>
                         {feedback? 'Check Feedback' : 'View Interviews'}
                     </Link>

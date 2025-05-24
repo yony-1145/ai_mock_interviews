@@ -19,7 +19,7 @@ const Page = async () => {
 
   return (
     <>
-      <section className='card-cta'>  {/* kakunin */}
+      <section className='card-cta'>
         <div className='flex flex-col gap-6 max-w-lg'>
           <h2>Get Interview-Ready with AI-powerd Practice</h2>
           <p className='text-lg'>
@@ -27,7 +27,7 @@ const Page = async () => {
           </p>
 
           <Button asChild className='btn-primary max-sm:w-full'>
-            <Link href="/interview">Start an Interview</Link>
+            <Link href="interview">Start an Interview</Link>
           </Button>
         </div>
         <Image src="/robot.png" alt="robo-dude" width={400} height={400} className='max-sm:hidden'/>
