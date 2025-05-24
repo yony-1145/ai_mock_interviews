@@ -13,6 +13,14 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+      FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
+      FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
+      GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
+      NEXT_PUBLIC_VAPI_WEB_TOKEN: ${{ secrets.NEXT_PUBLIC_VAPI_WEB_TOKEN }}
+      NEXT_PUBLIC_VAPI_WORKFLOW_ID: ${{ secrets.NEXT_PUBLIC_VAPI_WORKFLOW_ID }}
+      NEXT_PUBLIC_URL: ${{ secrets.NEXT_PUBLIC_URL }}
     steps:
       - uses: actions/checkout@v3
       - name: Set up Node.js
