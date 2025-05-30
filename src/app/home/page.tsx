@@ -3,9 +3,9 @@ import Image from 'next/image';
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen flex flex-col space-y-24">
-      <section className="px-6 lg:px-24 py-4">
-        <div className="mt-12 lg:mt-0 flex justify-center"> 
+    <main className="min-h-screen flex flex-col">
+      <section className="px-6 lg:px-24">
+        <div className="lg:mt-0 flex justify-center"> 
           <Image
             src="/demo.png"
             alt="App Image"
@@ -28,7 +28,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="space-y-12 px-6 lg:px-24 py-4">
+      <section className="my-12 space-y-12 px-6 lg:px-24 py-4">
         <div>
           <h2 className="text-center text-5xl font-extrabold leading-tight">
             Core Features
@@ -92,7 +92,7 @@ export default function HomePage() {
       </section>        
 
       <section>
-        <h2 className="text-4xl font-bold text-center mb-12">
+        <h2 className="my-12 text-5xl font-bold text-center">
           How to Use
         </h2>
 
