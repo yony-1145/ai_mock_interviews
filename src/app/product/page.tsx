@@ -107,7 +107,7 @@ export default function HomePage() {
               </p>
             </div>
             <Image
-              src="/HowtoSec1.png"
+              src="/howto1.png"
               alt="Step 1"
               width={400}
               height={400}
@@ -125,7 +125,7 @@ export default function HomePage() {
               </p>
             </div>
             <Image
-              src="/HowtoSec2.png"
+              src="/howto2.png"
               alt="Step 2"
               width={400}
               height={400}
@@ -143,7 +143,7 @@ export default function HomePage() {
               </p>
             </div>
             <Image
-              src="/HowtoSec3.png"
+              src="/howto3.png"
               alt="Step 3"
               width={400}
               height={400}
