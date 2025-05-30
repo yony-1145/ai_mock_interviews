@@ -277,6 +277,10 @@
     @apply flex flex-wrap gap-4 max-lg:flex-col w-full items-stretch;
   }
 
+  .home-text {
+    @apply text-center text-lg font-normal;
+  }
+
   .interview-text {
     @apply text-lg text-center text-white;
   }

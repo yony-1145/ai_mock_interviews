@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { ReactNode } from 'react'
+import Footer from '../components/Footer'
 
 const RootLayout = async({ children }:{ children: ReactNode} ) => {
   const isUserAuthenticated = await isAuthenticated();
@@ -16,8 +17,8 @@ const RootLayout = async({ children }:{ children: ReactNode} ) => {
           <h2 className='text-primary-100'>Prepwise</h2>
         </Link>
       </nav>
-
       {children}
+      <Footer/>
     </div>
   )
 }

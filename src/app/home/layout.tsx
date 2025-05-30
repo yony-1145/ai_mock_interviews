@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ReactNode } from 'react'
+import Footer from '../components/Footer'
 
 const HomeLayout = async({ children }:{ children: ReactNode} ) => {
   return (
@@ -26,6 +27,7 @@ const HomeLayout = async({ children }:{ children: ReactNode} ) => {
             </div>
         </nav>
       {children}
+      <Footer/>
     </div>
   )
 }

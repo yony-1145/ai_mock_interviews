@@ -91,44 +91,59 @@ export default function HomePage() {
 
       </section>        
 
-      <section className='space-x-12'>
-        <div>
-          <h2 className="text-center text-5xl font-extrabold leading-tight">
-            how to use
-          </h2>
-        </div>
+      <section>
+        <h2 className="text-4xl font-bold text-center mb-12">
+          How to Use
+        </h2>
 
-        <div className='flex flex-row justify-between space-x-8 mt-12'>
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 home-text">
+          <div className="space-y-4">
+            <p>
+            Step 1
+            </p>
             <Image
-            src="/feature1.png"
-            alt='features1'
-            width={400}
-            height={400}
+              src="/feature1.png"
+              alt="Step 1"
+              width={400}
+              height={400}
+              className="mx-auto"
             />
-            <p className="text-center text-lg font-normal mt-3">Generate Interview with your Voice Agent</p>
+            <p>
+              Generate Interview
+            </p>
           </div>
 
-          <div>
+          <div className="space-y-4">
+            <p>
+              Step 2
+            </p>
             <Image
-            src="/feature1.png"
-            alt='features1'
-            width={400}
-            height={400}
+              src="/feature1.png"
+              alt="Step 2"
+              width={400}
+              height={400}
+              className="mx-auto"
             />
-            <p className="text-center text-lg font-normal mt-3">Get Interviews</p>
+            <p>
+              Get Interview
+            </p>
           </div>
 
-          <div>
+          <div className="space-y-4">
+            <p>
+              Step 3
+            </p>
             <Image
-            src="/feature1.png"
-            alt='features1'
-            width={400}
-            height={400}
+              src="/feature1.png"
+              alt="Step 3"
+              width={400}
+              height={400}
+              className="mx-auto"
             />
-            <p className="text-center text-lg font-normal mt-3">Get Feedback</p>
+            <p>
+              Get Feedback
+            </p>
           </div>
-
         </div>
       </section>
     </main>
