@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen flex flex-col space-y-12">
+    <main className="min-h-screen flex flex-col space-y-24">
       <section className="px-6 lg:px-24 py-4">
         <div className="mt-12 lg:mt-0 flex justify-center"> 
           <Image
@@ -20,7 +20,7 @@ export default function HomePage() {
             with AI-powerd
           </h1>
           <Link
-            href="/sign-up"
+            href="/"
             className="inline-block px-8 py-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
           >
             Get Started
@@ -28,7 +28,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="space-y-16 px-6 lg:px-24 py-4">
+      <section className="space-y-12 px-6 lg:px-24 py-4">
         <div>
           <h2 className="text-center text-5xl font-extrabold leading-tight">
             Core Features
@@ -45,10 +45,10 @@ export default function HomePage() {
           
           <div className="text-left leading-tight">
             <h3 className="text-2xl font-bold">
-              Make Your Own Interview
+              Make Your Own Interview with AI
             </h3>
-            <p className="text-lg font-normal">
-              You can choose any topic you want to practice text text text text text text text text text
+            <p className="text-lg font-normal mt-3">
+              Generate interviews dynamically based on your selected themes using AI.
             </p>
           </div>
         </div>
@@ -56,10 +56,10 @@ export default function HomePage() {
         <div className='flex flex-row justify-between space-x-8 mt-8'>
           <div className="text-left leading-tight">
             <h3 className="text-2xl font-bold">
-              Get Instant Feedback <br />By Your AI Agent
+              Realtime Conversation <br />By Your AI Agent
             </h3>
-            <p className="text-lg font-normal">
-              You can choose any topic you want to practice text text text text text text text text text
+            <p className="text-lg font-normal mt-3">
+              Powered by advanced AI, every response comes instantly—just like in a real interview.
             </p>
           </div>
 
@@ -83,16 +83,54 @@ export default function HomePage() {
             <h3 className="text-2xl font-bold">
               Keep Track of Your Progress
             </h3>
-            <p className="text-lg font-normal">
-              You can save your feedback and cheack it whenever you want text text text text text text text text text
+            <p className="text-lg font-normal mt-3">
+              Monitor your performance and stay motivated by tracking your improvement.
             </p>
           </div>
         </div>
 
       </section>        
 
-      {/* <section></section> how to use */}
+      <section className='space-x-12'>
+        <div>
+          <h2 className="text-center text-5xl font-extrabold leading-tight">
+            how to use
+          </h2>
+        </div>
 
+        <div className='flex flex-row justify-between space-x-8 mt-12'>
+          <div>
+            <Image
+            src="/feature1.png"
+            alt='features1'
+            width={400}
+            height={400}
+            />
+            <p className="text-center text-lg font-normal mt-3">Generate Interview with your Voice Agent</p>
+          </div>
+
+          <div>
+            <Image
+            src="/feature1.png"
+            alt='features1'
+            width={400}
+            height={400}
+            />
+            <p className="text-center text-lg font-normal mt-3">Get Interviews</p>
+          </div>
+
+          <div>
+            <Image
+            src="/feature1.png"
+            alt='features1'
+            width={400}
+            height={400}
+            />
+            <p className="text-center text-lg font-normal mt-3">Get Feedback</p>
+          </div>
+
+        </div>
+      </section>
     </main>
   );
 }
