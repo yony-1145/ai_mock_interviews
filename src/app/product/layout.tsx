@@ -7,7 +7,7 @@ const HomeLayout = async({ children }:{ children: ReactNode} ) => {
   return (
     <div className='home-layout'>
         <nav className="w-full flex justify-between items-center">
-            <Link href="/home" className='flex items-center gap-2'>
+            <Link href="/product" className='flex items-center gap-2'>
                 <Image src="/logo.svg" alt="Logo" width={38} height={32}/>
                 <h2 className='text-primary-100'>Prepwise</h2>
             </Link>
