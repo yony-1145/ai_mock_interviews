@@ -4,92 +4,87 @@ import Image from 'next/image';
 export default function HomePage() {
   return (
     <main className="min-h-screen flex flex-col">
-      <section className="px-6 lg:px-24">
-        <div className="lg:mt-0 flex justify-center"> 
-          <Image
-            src="/demo.png"
-            alt="App Image"
-            width={800}
-            height={800}
-          />
-        </div>
+      <section className="px-6 lg:px-24 py-12 max-w-screen-xl mx-auto">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+          <div className="text-center lg:text-left space-y-6">
+            <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+              Get Your Own Interview <br />
+              with AI-powered
+            </h1>
+            <Link
+              href="/"
+              className="inline-block px-8 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
+            >
+              Get Started
+            </Link>
+          </div>
 
-        <div className="mt-12 space-y-6 text-center">
-          <h1 className="text-5xl font-extrabold leading-tight">
-            Get Your Own Interview <br/>
-            with AI-powerd
-          </h1>
-          <Link
-            href="/"
-            className="inline-block px-8 py-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
-          >
-            Get Started
-          </Link>
+          <div className="flex justify-center">
+            <Image
+              src="/demo.png"
+              alt="App Image"
+              width={600}
+              height={600}
+              className="mx-auto"
+            />
+          </div>
         </div>
       </section>
 
-      <section className="my-12 space-y-12 px-6 lg:px-24 py-4">
-        <div>
-          <h2 className="text-center text-5xl font-extrabold leading-tight">
-            Core Features
-          </h2>
-        </div>
+      <section className="my-20 px-6 lg:px-24 py-12 max-w-screen-xl mx-auto">
+        <h2 className="text-center text-5xl font-extrabold leading-tight mb-16">
+          Three Core Features
+        </h2>
 
-        <div className='flex flex-row justify-between space-x-8 mt-12'>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <Image
             src="/coreft1.png"
-            alt='features1'
+            alt="features1"
             width={400}
             height={400}
-            />
-          
-          <div className="text-left leading-tight">
-            <h3 className="text-2xl font-bold">
-              Generate Your Own Interview with AI
-            </h3>
-            <p className="text-lg font-normal mt-3">
+            className="mx-auto"
+          />
+          <div className="text-center lg:text-left leading-tight">
+            <h3 className="text-3xl font-bold">1. Generate Your Own Interview with AI</h3>
+            <p className="hidden md:block text-2xl font-normal mt-3">
               Generate interviews dynamically based on your selected themes using AI.
             </p>
           </div>
         </div>
 
-        <div className='flex flex-row justify-between space-x-8 mt-8'>
-          <div className="text-left leading-tight">
-            <h3 className="text-2xl font-bold">
-              Realtime Conversation <br />By Your AI Agent
-            </h3>
-            <p className="text-lg font-normal mt-3">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div className="text-center lg:text-left leading-tight order-2 lg:order-1">
+            <h3 className="text-3xl font-bold">2. Realtime Conversation</h3>
+            <p className="hidden md:block text-2xl font-normal mt-3">
               Powered by advanced AI, every response comes instantly—just like in a real interview.
             </p>
           </div>
 
           <Image
             src="/coreft2.png"
-            alt='features1'
+            alt="features2"
             width={400}
             height={400}
+            className="mx-auto order-1 lg:order-2"
           />
         </div>
 
-        <div className='flex flex-row justify-between space-x-8 mt-8'>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <Image
             src="/coreft3.png"
-            alt='features1'
+            alt="features3"
             width={400}
             height={400}
+            className="mx-auto"
           />
-
-          <div className="text-left leading-tight">
-            <h3 className="text-2xl font-bold">
-              Keep Track of Your Progress
-            </h3>
-            <p className="text-lg font-normal mt-3">
+          <div className="text-center lg:text-left leading-tight">
+            <h3 className="text-3xl font-bold">3. Keep Track of Your Progress</h3>
+            <p className="hidden md:block text-2xl font-normal mt-3">
               Monitor your performance and stay motivated by tracking your improvement.
             </p>
           </div>
         </div>
-
-      </section>        
+      </section>
 
       <section>
         <h2 className="my-12 text-5xl font-bold text-center">
@@ -103,7 +98,7 @@ export default function HomePage() {
               Step 1
               </p>
               <p>
-                Generate Interview
+                Generate a Interview
               </p>
             </div>
             <Image
@@ -121,7 +116,7 @@ export default function HomePage() {
                 Step 2
               </p>
               <p>
-                Get Interview
+                Take a Interview
               </p>
             </div>
             <Image
@@ -139,7 +134,7 @@ export default function HomePage() {
                 Step 3
               </p>
               <p>
-                Get Feedback
+                Get a Feedback
               </p>
             </div>
             <Image
