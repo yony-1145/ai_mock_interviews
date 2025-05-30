@@ -278,7 +278,7 @@
   }
 
   .home-text {
-    @apply text-center text-lg font-normal;
+    @apply text-center text-lg font-semibold;
   }
 
   .interview-text {

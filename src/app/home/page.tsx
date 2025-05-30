@@ -37,7 +37,7 @@ export default function HomePage() {
 
         <div className='flex flex-row justify-between space-x-8 mt-12'>
           <Image
-            src="/feature1.png"
+            src="/coreft1.png"
             alt='features1'
             width={400}
             height={400}
@@ -45,7 +45,7 @@ export default function HomePage() {
           
           <div className="text-left leading-tight">
             <h3 className="text-2xl font-bold">
-              Make Your Own Interview with AI
+              Generate Your Own Interview with AI
             </h3>
             <p className="text-lg font-normal mt-3">
               Generate interviews dynamically based on your selected themes using AI.
@@ -64,7 +64,7 @@ export default function HomePage() {
           </div>
 
           <Image
-            src="/feature1.png"
+            src="/coreft2.png"
             alt='features1'
             width={400}
             height={400}
@@ -73,7 +73,7 @@ export default function HomePage() {
 
         <div className='flex flex-row justify-between space-x-8 mt-8'>
           <Image
-            src="/feature1.png"
+            src="/coreft3.png"
             alt='features1'
             width={400}
             height={400}
@@ -98,51 +98,57 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 home-text">
           <div className="space-y-4">
-            <p>
-            Step 1
-            </p>
+            <div>
+              <p className='font-bold text-2xl'>
+              Step 1
+              </p>
+              <p>
+                Generate Interview
+              </p>
+            </div>
             <Image
-              src="/feature1.png"
+              src="/HowtoSec1.png"
               alt="Step 1"
               width={400}
               height={400}
               className="mx-auto"
             />
-            <p>
-              Generate Interview
-            </p>
           </div>
 
           <div className="space-y-4">
-            <p>
-              Step 2
-            </p>
+            <div>
+              <p className='font-bold text-2xl'>
+                Step 2
+              </p>
+              <p>
+                Get Interview
+              </p>
+            </div>
             <Image
-              src="/feature1.png"
+              src="/HowtoSec2.png"
               alt="Step 2"
               width={400}
               height={400}
               className="mx-auto"
             />
-            <p>
-              Get Interview
-            </p>
           </div>
 
           <div className="space-y-4">
-            <p>
-              Step 3
-            </p>
+            <div>
+              <p className='font-bold text-2xl'>
+                Step 3
+              </p>
+              <p>
+                Get Feedback
+              </p>
+            </div>
             <Image
-              src="/feature1.png"
+              src="/HowtoSec3.png"
               alt="Step 3"
               width={400}
               height={400}
               className="mx-auto"
             />
-            <p>
-              Get Feedback
-            </p>
           </div>
         </div>
       </section>
