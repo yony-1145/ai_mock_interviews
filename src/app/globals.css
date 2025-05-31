@@ -303,6 +303,9 @@
   .btn-google {
       @apply !w-full bg-white !text-dark-100 hover:!bg-gray-500 !rounded-full !min-h-10 !font-bold !px-5 cursor-pointer;
   }
+  .btn-logout {
+    @apply max-sm:!w-fit !bg-primary-200 !text-dark-100 hover:!bg-primary-200/80 !rounded-full !min-h-10 !font-bold !px-5 cursor-pointer;
+  }
 }
 
 @utility dark-gradient {
