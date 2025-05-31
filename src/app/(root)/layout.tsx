@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { ReactNode } from 'react'
 import Footer from '../components/Footer'
+import { Button } from '@/components/ui/button'
+import LogoutButton from '../components/LogoutButton'
 
 const RootLayout = async({ children }:{ children: ReactNode} ) => {
   const isUserAuthenticated = await isAuthenticated();
@@ -16,6 +18,7 @@ const RootLayout = async({ children }:{ children: ReactNode} ) => {
           <Image src="/logo.svg" alt="Logo" width={38} height={32}/>
           <h2 className='text-primary-100'>Prepwise</h2>
         </Link>
+        <LogoutButton/>
       </nav>
       {children}
       <Footer/>
