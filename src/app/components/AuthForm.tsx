@@ -24,9 +24,12 @@ import { signIn, signUp } from "@/lib/actions/auth.action";
 
 const authFormSchema = (type: FormType) => {
   return z.object({
-    name: type === "sign-up" ? z.string().min(3) : z.string().optional(),
-    email: z.string().email(),
-    password: z.string().min(3),
+    name: type === "sign-up"
+      ? z.string().min(3, { message: "Name must be at least 3 characters long" })
+      : z.string().optional(),
+    email: z.string().email({ message: "Please enter a valid email address" }),
+    password: z.string().min(8, { message: "Password must be at least 6 characters long" })
+    .regex(/[0-9]/, "Password must contain at least one number"),
   });
 };
 
@@ -43,6 +46,20 @@ const AuthForm = ({ type }: { type: FormType }) => {
       password: "",
     }
   });
+
+  function onError(errors: any) {
+    const errorMessages = Object.values(errors)
+      .map((error: any) => error?.message)
+      .filter((msg) => !!msg);
+
+    errorMessages.forEach((msg, index) => {
+      setTimeout(() => {
+        toast.error(msg);
+      }, index * 500); // 0.5 seconds delay for eatch error message
+    });
+  }
+
+
 
   const isSignIn = type === "sign-in";
 
@@ -134,7 +151,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
         <h3>Practice job interview with AI</h3>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 mt-4 form">
+          <form onSubmit={form.handleSubmit(onSubmit, onError)} className="w-full space-y-6 mt-4 form">
             {!isSignIn && (
               <FormField
                 control={form.control}

@@ -6,6 +6,7 @@ import { ReactNode } from 'react'
 import Footer from '../components/Footer'
 import { Button } from '@/components/ui/button'
 import LogoutButton from '../components/LogoutButton'
+import { Toaster } from 'sonner'
 
 const RootLayout = async({ children }:{ children: ReactNode} ) => {
   const isUserAuthenticated = await isAuthenticated();
@@ -22,6 +23,7 @@ const RootLayout = async({ children }:{ children: ReactNode} ) => {
       </nav>
       {children}
       <Footer/>
+      <Toaster />
     </div>
   )
 }
