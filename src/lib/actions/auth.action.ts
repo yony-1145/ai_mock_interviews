@@ -3,6 +3,10 @@
 import { setSessionCookies } from '@/lib/utils/session';
 import { auth, db } from "@/app/firebase/admin";
 import { cookies } from "next/headers";
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { toast } from 'sonner';
+import Router from 'next/router';
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
 const ONE_WEEK = 60 * 60 * 24 * 7;
 const ONE_WEEK_MS = 1000 * 60 * 60 * 24 * 7;
@@ -101,4 +105,3 @@ export async function isAuthenticated(){
 
   return !!user;
 }
-

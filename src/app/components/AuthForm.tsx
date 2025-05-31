@@ -17,7 +17,7 @@ import Link from "next/link";
 import { toast } from "sonner"
 import FormField from "./FormField"
 import { useRouter } from "next/navigation"
-import { signIn, signUp } from "@/lib/actions/auth.action";
+import { signIn, signUp, signInWithGoogle } from "@/lib/actions/auth.action";
 
 
 
@@ -93,7 +93,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
     const isSignIn = type === "sign-in";
 
   return (
-    <div className="card-border min-w-[566px]">
+    <div className="card-border md:min-w-[566px]">
       <div className="flex flex-col gap-6 card py-14 px-10">
         <div className="flex flex-row gap-2 justify-center">
             <Image src="/logo.svg" alt="logo"height={32} width={38} />
