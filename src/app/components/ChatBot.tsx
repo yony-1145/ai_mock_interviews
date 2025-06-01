@@ -11,7 +11,7 @@ type Message = {
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([{ sender: 'bot', text: 'I can assist your job interview or answer about how to use this app.' },]);
   const messageEndRef = useRef<HTMLDivElement>(null);
 
   const handleSend = async () => {
@@ -69,7 +69,7 @@ export default function ChatBot() {
               <div key={i} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'} items-end`}>
                 {msg.sender === 'bot' && (
                   <Image
-                    src="/ai-avatar.png"
+                    src="/ai-agent.png"
                     alt="Bot"
                     width={32}
                     height={32}
