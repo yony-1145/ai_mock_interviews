@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import Footer from '../components/Footer'
+import ChatBot from '../components/ChatBot'
 
 const HomeLayout:any = async({ children }:{ children: ReactNode} ) => {
   return (
@@ -22,6 +23,7 @@ const HomeLayout:any = async({ children }:{ children: ReactNode} ) => {
           </div>
         </nav>
       {children}
+      <ChatBot />
       <Footer/>
     </div>
   )
