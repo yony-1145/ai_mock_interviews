@@ -2,8 +2,8 @@ import { generateText } from 'ai';
 import { google } from '@ai-sdk/google';
 
 const faqMap: { [key: string]: string } = {
-  'how to use': '',
-  'feature': '現在の価格は税込19,800円です。',
+  'how to use': 'You can use this app following these 3 steps: 1. Generate a Interview, 2. Take a interview, 3. Get a Feedback.',
+  'feature of this app': 'You can take a Realtime Conversation powered by AI.',
 };
 
 export async function POST(request: Request) {

@@ -44,8 +44,15 @@ export default function ChatBot() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 bg-indigo-600 text-white px-4 py-3 rounded-full shadow-lg hover:bg-indigo-700 transition z-50 cursor-pointer"
+          className="fixed bottom-6 right-6 flex bg-indigo-600 text-white px-4 py-3 rounded-full shadow-lg hover:bg-indigo-700 transition z-50 cursor-pointer"
         >
+          <Image
+            src="/ai-agent.png"
+            alt="Bot"
+            width={32}
+            height={32}
+            className="mr-2 rounded-full"
+          />
           Ask AI Agent
         </button>
       )}
