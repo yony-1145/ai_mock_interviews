@@ -2,6 +2,10 @@ import { generateText } from 'ai';
 import { google } from '@ai-sdk/google';
 import { NextResponse } from 'next/server';
 
+export const config = {
+  schedule: '*/5 * * * *' // 5分おき
+};
+
 // This route is used to prewarm the Google Gemini model
 export async function GET() {
   try {
