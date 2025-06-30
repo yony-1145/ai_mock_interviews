@@ -1,10 +1,17 @@
 import { generateText } from 'ai';
 import { google } from '@ai-sdk/google';
 
-const faqMap: { [key: string]: string } = {
-  'how to use': 'You can use this app following these 3 steps: 1. Generate a Interview, 2. Take a interview, 3. Get a Feedback.',
-  'feature of this app': 'You can take a Realtime Conversation powered by AI.',
+const faqMap: Record<string, string> = {
+  'What can I do with this app': 
+    'This app allows you to:\n- Practice coding interviews\n- Get feedback on your answers\n- Improve your technical skills',
+
+  'How to use this app?': 
+    'To use this app:\n1. Generate an interview\n2. Choose a mock interview\n3. Answer questions\n4. Review feedback and improve',
+
+  'About the pricing plan.': 
+    'You can use this app for free.\nPro features will be available soon.',
 };
+
 
 export async function POST(request: Request) {
   const { message } = await request.json();

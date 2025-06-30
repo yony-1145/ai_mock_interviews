@@ -49,13 +49,29 @@ export default function ChatBot() {
       }
     } else {
       // sessionStorageが空のときだけ初期メッセージ
-      setMessages([{ sender: 'bot', text: 'I can assist your job interview or answer about how to use this app.' }]);
+      setMessages([
+        {
+          sender: 'bot',
+          text: `🎤 Welcome to the AI Interview Assistant.
+
+      This channel addresses questions about using the application and participating in mock interviews.
+      ※ Interview generation and keyword analysis are not supported.
+
+      ★ Guidance for effective inquiries
+      • Submit one question at a time
+      • Write concisely and specifically
+      • Provide relevant context when appropriate
+
+      📘 All responses reference the official product documentation.
+      ❓ Comprehensive user guide → /help`
+        }
+      ]);
     }
   }, []);
 
   // メッセージが更新されたときにスクロールして、セッションストレージに保存
   useEffect(() => {
-    messageEndRef.current?.scrollIntoView({ behavior: 'smooth' }); 
+    messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     sessionStorage.setItem("chat_messages", JSON.stringify(messages));
   }, [messages]);
 
@@ -64,7 +80,7 @@ export default function ChatBot() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 flex bg-indigo-600 text-white px-4 py-3 rounded-full shadow-lg hover:bg-indigo-700 transition z-50 cursor-pointer"
+          className="fixed bottom-6 right-6 flex bg-indigo-600 text-black px-4 py-3 rounded-full shadow-lg hover:bg-indigo-700 transition z-50 cursor-pointer"
         >
           <Image
             src="/ai-agent.png"
@@ -93,27 +109,48 @@ export default function ChatBot() {
           {/* メッセージエリア */}
           <div className="flex-1 overflow-y-auto px-3 py-2 space-y-3">
             {messages.map((msg, i) => (
-              <div key={i} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'} items-end`}>
-                {msg.sender === 'bot' && (
-                  <Image
-                    src="/ai-agent.png"
-                    alt="Bot"
-                    width={32}
-                    height={32}
-                    className="mr-2 rounded-full"
-                  />
-                )}
+              <div key={i}>
+                {/* ① 各メッセージ表示 */}
+                <div className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'} items-end`}>
+                  {msg.sender === 'bot' && (
+                    <Image
+                      src="/ai-agent.png"
+                      alt="Bot"
+                      width={32}
+                      height={32}
+                      className="mr-2 rounded-full"
+                    />
+                  )}
                 <div
                   className={`max-w-[75%] px-4 py-2 rounded-2xl text-sm md:text-base break-words ${
                     msg.sender === 'user'
-                      ? 'bg-indigo-100 text-indigo-800 rounded-br-none'
+                      ? 'bg-indigo-100 text-black rounded-br-none'
                       : 'bg-gray-200 text-gray-900 rounded-bl-none'
                   }`}
                 >
-                  {msg.text}
+                {msg.text.split('\n').map((line, index) => (
+                  <p key={index} className="text-inherit leading-relaxed">{line}</p>
+                ))}
                 </div>
+                </div>
+
+                {/* ★ ② 初期メッセージの直後にのみ表示されるチップエリア */}
+                {i === 0 && msg.sender === 'bot' && (
+                  <div className="ml-10 mt-2 p-1 flex flex-wrap gap-2 text-black text-2x">
+                    {['What can I do with this app?', 'How to use this app?', 'About the pricing plan.'].map((q) => (
+                      <button
+                        key={q}
+                        onClick={() => setInput(q)}
+                        className="bg-gray-200 hover:bg-gray-300 text-sm px-3 py-1 rounded-full transition text-gray-900 border border-gray-400 hover:border-gray-400"
+                      >
+                        {q}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
+
             <div ref={messageEndRef} />
           </div>
 
