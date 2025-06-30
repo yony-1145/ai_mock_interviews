@@ -11,9 +11,12 @@ type Message = {
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState<Message[]>([{ sender: 'bot', text: 'I can assist your job interview or answer about how to use this app.' },]);
+  const [messages, setMessages] = useState<Message[]>([
+    { sender: 'bot', text: 'I can assist your job interview or answer about how to use this app.' },
+  ]);
   const messageEndRef = useRef<HTMLDivElement>(null);
 
+  // メッセージ送信ハンドラー
   const handleSend = async () => {
     const trimmed = input.trim();
     if (!trimmed) return;
@@ -35,8 +38,25 @@ export default function ChatBot() {
     }
   };
 
+  // 初期化
   useEffect(() => {
-    messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    const saved = sessionStorage.getItem("chat_messages");
+    if (saved) {
+      try {
+        setMessages(JSON.parse(saved));
+      } catch {
+        console.warn("Failed to parse chat messages from sessionStorage");
+      }
+    } else {
+      // sessionStorageが空のときだけ初期メッセージ
+      setMessages([{ sender: 'bot', text: 'I can assist your job interview or answer about how to use this app.' }]);
+    }
+  }, []);
+
+  // メッセージが更新されたときにスクロールして、セッションストレージに保存
+  useEffect(() => {
+    messageEndRef.current?.scrollIntoView({ behavior: 'smooth' }); 
+    sessionStorage.setItem("chat_messages", JSON.stringify(messages));
   }, [messages]);
 
   return (
