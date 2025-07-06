@@ -1,0 +1,28 @@
+flowchart LR
+  %% セクション：各コンポーネントを整理
+  subgraph User["ユーザー"]
+    U["エンドユーザー"]
+  end
+
+  subgraph Vercel["Vercel（ホスティング: Next.js Frontend & API）"]
+    UI["Next.js Frontend (React + TypeScript & TailwindCSS + Shadcn)"]
+    APIRoute["/api/... (認証・DB操作・AI呼び出し)"]
+  end
+
+  subgraph Firebase["Firebase (BaaS)"]
+    Auth["Firebase Auth"]
+    Firestore["Firestore"]
+  end
+
+  subgraph AI["AI 処理ロジック"]
+    SDK["ai‑sdk"]
+    GeminiAPI["Gemini API"]
+  end
+
+  %% 通信フロー
+  U --> UI
+  UI --> APIRoute
+  APIRoute --> Auth
+  APIRoute --> Firestore
+  APIRoute --> SDK
+  SDK --> GeminiAPI
