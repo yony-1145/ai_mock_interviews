@@ -62,8 +62,8 @@ export default function ChatBot() {
       • Write concisely and specifically
       • Provide relevant context when appropriate
 
-      📘 All responses reference the official product documentation.
-      ❓ Comprehensive user guide → /help`
+      📘 If supplementary materials or detailed instructions are required,
+         we will provide them on a case-by-case basis.`
         }
       ]);
     }
